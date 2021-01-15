@@ -1,3 +1,45 @@
-<form [formGroup]="myForm" (submit)="submit()">
+<div [style.margin.px]="50">
+  <form [formGroup]="myForm" (submit)="submit()" fxLayout="column">
+    <mat-form-field appearance="outline" id="emailField">
+      <mat-label>Email Address </mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="email"
+        id="emailInput"
+        required
+      />
+      <mat-error
+        *ngIf="
+          myForm.get('email')?.hasError('required') ||
+          myForm.get('email')?.hasError('email')
+        "
+      >
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
 
-</form>
+    <mat-form-field appearance="outline" id="firstNameField">
+      <mat-label> First Name </mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        id="firstNameInput"
+        required
+      />
+      <mat-error *ngIf="myForm.get('firstName')?.hasError('required')">
+        Please enter your first name
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" id="lastNameField">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" id="lastNameInput" />
+      <mat-hint>You don't have to tell us</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" id="submitButton">
+      Submit this form
+    </button>
+  </form>
+</div>
