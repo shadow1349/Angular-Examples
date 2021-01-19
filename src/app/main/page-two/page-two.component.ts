@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-page-two',
   templateUrl: './page-two.component.html',
-  styleUrls: ['./page-two.component.scss']
+  styleUrls: ['./page-two.component.scss'],
 })
-export class PageTwoComponent implements OnInit {
+export class PageTwoComponent {
+  list = ['apple', 'orange', 'banana', 'mango', 'strawberry'];
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }
